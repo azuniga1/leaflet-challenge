@@ -28,8 +28,7 @@ d3.json(queryUrl, function(data) {
     // Give each feature a popup describing the place and time of the earthquake
     function onEachFeature(feature, layer) {
      
-      layer.bindPopup("<h3>" + feature.properties.mag +
-      "</h3><hr><p>" + new Date(feature.properties.time) + "</p>");
+      layer.bindPopup("<h3>" + feature.properties.place + " - " + feature.properties.mag + " Mag" );
      }
 
      function pointToLayer (feature, latlng){
@@ -38,7 +37,7 @@ d3.json(queryUrl, function(data) {
         fillOpacity: 0.7,
         color: chooseColor(feature.properties.mag),
         fillColor: chooseColor(feature.properties.mag),
-        radius: feature.properties.mag * 3
+        radius: feature.properties.mag * 2
        })
 
       
